@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta charset="utf-8">
+		        <link rel="shortcut icon" href="/favicon.ico" />
+		<title>中国船期网 船期搜索 </title>
+    	<meta name="description" content="中国船期网,soushipping,是国内最快捷的船期搜索引擎,它提供最新最详实的国际班轮运输船期信息,涵盖了大部分班轮公司船运信息。">
+        <meta name="keywords" content="截关时间,截关查询,船东,班轮运输,船期表,海运航期,船运信息,船期搜索" />
+        <meta name="author" content="Hynial">
+        <meta name="copyright" content="厦门鑫炬信息科技有限公司">
+    	<!--[if lt IE 9]>
+    		<script src="/js/html5.js"></script>
+    	<![endif]-->
+        <link href="/css/bootstrap.css" rel="stylesheet">
+    	<!--[if IE 6]>    
+    		<link href="/css/ie6.min.css" rel="stylesheet">
+            <script src="/js/unitpngfix.js"></script>
+    	<![endif]-->
+        <link rel="stylesheet" href="/css/main.css">
+            <link type="text/css" href="/css/datepicker.css" rel="stylesheet">
+    <link type="text/css" href="/css/cityquery.css" rel="stylesheet">
+    <link type="text/css" href="/css/freightrate.css" rel="stylesheet">
+    <link type="text/css" href="/css/jquery.multiselect.css" rel="stylesheet">
+    <link type="text/css" href="/css/jquery-ui-n.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/jquery.sitebar.css"/>
+                <script src="/js/global.js"></script>
+		<script> var _czc = _czc || []; _czc.push(["_setAccount", "5060905"]); </script>
+            </head>
+    <body>
+		        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner" id="navinner">
+                <div class="container ">
+                    <div class="header-logo pull-left">
+                        <a href="/">
+                            <img src="/img/logo.png" alt="船期" title="中国船期网首页" id="logoch"/>
+                        </a>
+                    </div>
+                    <div class="header-login">
+                        													    <ul class="subbreadcrumb">
+	                          <li><a href="/login" class="logbtn">登录</a> <span class="divider">/</span></li>
+	                          <li><a href="/register" class="regbtn">注册</a><!-- <span class="divider">/</span> --></li>
+<!-- 
+	                          <li><a href="/myspace" id="enterspace">进入我的工作空间</a><span class="divider">/</span></li>
+	                          <li><a href="javascript:void(0)" id="favorite">按Ctrl+D收藏导航</a><span class="divider">/</span></li>
+	                          <li><a href="javascript:void(0)" id="masterpage">设为首页</a></li>
+	                           -->
+							</ul>
+						                                                </div>
+                    <div class="mynav">
+			            <div class="nav-menu">			                <a href="/">首页</a>			                <a href="/cartrac">货物跟踪</a>
+			                <a href="/utilnav">实用导航</a>
+			                <a href="/overseas_agency.html" class="chuye">海外代理</a>
+			                <a href="/exchange_rate.html" >外汇牌价</a>
+			                <a href="/heatmap" target="_blank">船期热力图</a>
+			                <a href="/api">船期接口（API）</a>
+			            </div>
+					</div>
+
+                </div>
+            </div>
+        </div>
+				        <div class="result-info">
+            <div class="container well wellpatch">
+                <!-- 船期搜索 -->
+                <div class="result-forum">
+                    <form class="form-inline" action="/paginate" method="get" style="" onSubmit="return beforeSub();">
+                      <label class="help-inline" for="fromcity">起始地
+                                            ：</label>
+                      
+                      <input id="fromcity" name="orginalcity" type="text" class="input-small" placeholder="起始地" tabindex="1" onfocus="this.select()" value="Shanghai,Shanghai,China">
+                      <label class="help-inline" for="tocity">目的地
+                                            ：</label>
+                      
+                      <input id="tocity" name="destcity" type="text" class="input-small" placeholder="目的地" tabindex="2" onfocus="this.select()" value="New York,New York,United States">
+                      <label class="help-inline" for="datepicker">离港日
+                                            ：</label>
+                      <input id="datepicker" name="leaveday" data-date-format="yyyy-mm-dd" type="text" class="input-small" placeholder="离港日" tabindex="3" style="text-shadow: 0px 0px 1px rgba(119, 170, 141, 0.35);" onclick="onc3()" value="2015-05-25">
+                      <span class="help-inline" style="margin-left: -25px;margin-right: 15px;">+1WEEKS</span>
+                      <label class="help-inline" for="selectpicker">承运人
+                                            ：</label>
+                        <select id="selectpicker" name="initialselectpicker" multiple="multiple" tabindex="4">
+                            <option value="ALIANCA">ALIANCA</option>
+                            <option value="ANL">ANL</option>
+                            <option value="APL">APL</option>
+                            <option value="CMA">CMA</option>
+							<option value="CNC">CNC</option>
+                            <option value="COSCO">COSCO</option>
+                            <option value="CSAV">CSAV</option>
+                            <option value="CSCL">CSCL</option>
+							<option value="DELMAS">DELMAS</option>
+							<option value="EMIRATES">EMIRATES</option>
+                            <option value="EVERGREEN">EVERGREEN</option>
+							<option value="HAMBURG SÜD">HAMBURG SÜD</option>
+                            <option value="HANJIN">HANJIN</option>
+                            <option value="HAPAG-LLOYD">HAPAG-LLOYD</option>
+							<option value="HMM">HMM</option>
+							<option value="K.LINE">K.LINE</option>
+                            <option value="MCC">MCC</option>
+                            <option value="MOL">MOL</option>
+                            <option value="MSC">MSC</option>
+                            <option value="MSK">MSK</option>
+							<option value="NORASIA">NORASIA</option>
+							<option value="NYK">NYK</option>
+                            <option value="PIL">PIL</option>
+                            <option value="SAFMARINE">SAFMARINE</option>
+							<option value="UASC">UASC</option>
+                            <option value="WANHAI">WANHAI</option>
+                            <option value="YANGMING">YANGMING</option>
+                            <option value="ZIM">ZIM</option>
+                        </select>
+												<button type="submit" class="btn btn-primary " style="margin-left:5px;" tabindex="5" accesskey="s">船期搜索</button>
+												<div id="target">
+                            <input id="pickers" name = "pickers" type="hidden" value="">
+                        </div>
+                    </form>
+                    
+                </div>
+                <div style="clear:both;float:left;margin-left:5px;margin-top: 15px;font-size: 11px;">
+										<span>船期上次更新时间:</span>
+					<span>
+					2015-05-04					</span>
+					<span>
+						&nbsp;&nbsp;&nbsp;&nbsp;本次查询为您搜索出
+						<strong>88</strong>&nbsp;条结果
+					</span>
+										<div>
+						<p>
+							1.*进入第三方网站，查看由当地码头提供的相关详细信息
+                            						</p>
+						<p>
+							2.蓝色文字可以点开获得详细信息,点击按钮可重新排序
+                            						</p>
+                        <p>
+                            3.点击船名查看船舶实时位置（船讯网提供）
+                                                    </p>
+					</div>
+                </div>
+                <p />
+            </div>
+			
+                <div class="container well wellpatch2">
+                <div class="result-content" style="margin-top:-5px;">
+                    <div class="accordion" id="accordion2">
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <table class="table table-hover forth">
+                                                                        <thead>
+                                        <th><a id="b1" name="1" class="btn btn-small " href="javascript:void(0)">
+                                        Carrier&nbsp;<br />承运人</a></th>
+                                        <th><a id="b2" name="2" class="btn btn-small " href="javascript:void(0)">
+                                        Service&nbsp;<br />航线</a></th>
+                                        <th>Vessel<br />
+                                            船名</th>
+                                        <th>Voyage<br />
+                                            航次</th>
+                                        <th><a id="b3" name="3" class="btn btn-small btn-info" href="javascript:void(0)">
+                                        ETD&nbsp;↑<br />
+                                            离港日</a></th>
+                                        <th><a id="b4" name="4" class="btn btn-small " href="javascript:void(0)">
+                                        ETA&nbsp;<br />
+                                            到港日</a></th>
+                                        <th><a id="b5" name="5" class="btn btn-small " href="javascript:void(0)">
+                                        T/T&nbsp;<br />
+                                            航程/天</a></th>
+                                        <th>Detail<br />
+                                            详情</th>
+                                        <th>
+                                            <table class="minprice">
+                                                <tr><td colspan="3" style="text-align: center;">最低运价/USD</td></tr>
+                                                <tr>
+                                                    <td>20GP</td>
+                                                    <td>40GP</td>
+                                                    <td>40HQ</td>
+                                                </tr>
+                                            </table>
+                                        </th>
+                                    </thead>   
+                                    <!-- 1body -->
+                                    <tbody>
+                                                                            <tr>
+                                            <td>YANGMING</td>
+                                            <td><a href="/downpdf/YANGMING-AW1" target="_blank">AW1</a></td>
+                                            <td><a href="http://www.shipxy.com/Monitor?kw=HANJIN ATLANTA" target="_blank" title="点击查看船位">HANJIN ATLANTA</a></td>
+                                            <td>0032E</td>
+                                            <td>2015-05-25</td>
+                                            <td>2015-06-19</td>
+                                            <td style="text-align:center;">25</td>
+											<td>
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#211365" onclick="changesign(this);">
+                                                    +Detail
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <table class="instMinPrice">
+                                                    <tr>
+                                                        <td><span id="mingp20-211365">...</span></td>
+                                                        <td><span id="mingp40-211365">...</span></td>
+                                                        <td><span id="minhq40-211365">...</span></td>
+                                                        <td><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#imp211365" title="详细运价">详</a></td>
+                                                    </tr>
+                                                </table>
+                                                <input type="hidden" value="YANGMING&CE3E9C3EBC236D6D&172119D490AE5F66" id="forfrID-211365">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <div id="211365" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                                                                             
+                                                        <table id="intable">
+                                                            
+                                                            <tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          hanjin atlanta                                                                           </td>
+                                                                          
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            shanghai                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                            
+                                                                                    <td>new york </td>
+                                                                                                                                                            </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            0032e                                                                             </td>
+                                                                            
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                    </table>
+                                                        <div align="right">
+                                                            <strong>Total Transit Time : 25day(s)</strong>
+                                                        </div>
+                                                                                                            </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9">
+                                                <div id="imp211365" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                        <div id="eachfrom-211365">
+                                                            <div class="e_fly_th">
+                                                                <ul>
+                                                                    <li class="c0">运价信息</li>
+                                                                    <li class="c1">有效期</li>
+                                                                    <li class="c2">联系方式</li>
+                                                                    <li class="c3">运价/USD{20GP,40GP,40HQ}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>YANGMING</td>
+                                            <td><a href="/downpdf/YANGMING-AW4" target="_blank">AW4</a></td>
+                                            <td><a href="http://www.shipxy.com/Monitor?kw=YM MATURITY" target="_blank" title="点击查看船位">YM MATURITY</a></td>
+                                            <td>032A</td>
+                                            <td>2015-05-25</td>
+                                            <td>2015-06-20</td>
+                                            <td style="text-align:center;">26</td>
+											<td>
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#211391" onclick="changesign(this);">
+                                                    +Detail
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <table class="instMinPrice">
+                                                    <tr>
+                                                        <td><span id="mingp20-211391">...</span></td>
+                                                        <td><span id="mingp40-211391">...</span></td>
+                                                        <td><span id="minhq40-211391">...</span></td>
+                                                        <td><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#imp211391" title="详细运价">详</a></td>
+                                                    </tr>
+                                                </table>
+                                                <input type="hidden" value="YANGMING&CE3E9C3EBC236D6D&172119D490AE5F66" id="forfrID-211391">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <div id="211391" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                                                                             
+                                                        <table id="intable">
+                                                            
+                                                            <tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          ym maturity                                                                           </td>
+                                                                          
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            shanghai                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                            
+                                                                                    <td>new york </td>
+                                                                                                                                                            </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            032a                                                                             </td>
+                                                                            
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                    </table>
+                                                        <div align="right">
+                                                            <strong>Total Transit Time : 26day(s)</strong>
+                                                        </div>
+                                                                                                            </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9">
+                                                <div id="imp211391" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                        <div id="eachfrom-211391">
+                                                            <div class="e_fly_th">
+                                                                <ul>
+                                                                    <li class="c0">运价信息</li>
+                                                                    <li class="c1">有效期</li>
+                                                                    <li class="c2">联系方式</li>
+                                                                    <li class="c3">运价/USD{20GP,40GP,40HQ}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>MOL</td>
+                                            <td><a href="/downpdf/MOL-CC4" target="_blank">CC4</a></td>
+                                            <td><a href="http://www.shipxy.com/Monitor?kw=APL HONG KONG" target="_blank" title="点击查看船位">APL HONG KONG</a></td>
+                                            <td>192E</td>
+                                            <td>2015-05-25</td>
+                                            <td>2015-06-08</td>
+                                            <td style="text-align:center;">14</td>
+											<td>
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#515578" onclick="changesign(this);">
+                                                    +Detail
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <table class="instMinPrice">
+                                                    <tr>
+                                                        <td><span id="mingp20-515578">...</span></td>
+                                                        <td><span id="mingp40-515578">...</span></td>
+                                                        <td><span id="minhq40-515578">...</span></td>
+                                                        <td><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#imp515578" title="详细运价">详</a></td>
+                                                    </tr>
+                                                </table>
+                                                <input type="hidden" value="MOL&CE3E9C3EBC236D6D&172119D490AE5F66" id="forfrID-515578">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <div id="515578" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                                                                             
+                                                        <table id="intable">
+                                                            
+                                                            <tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          apl hong kong                                                                           </td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            shanghai                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                                                                                                    </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                                                                                                         </td>
+                                                                                                                                                    </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                            <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          truck                                                                           </td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            los angeles ca <br />                                                                            </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                                                                                                    </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                                                                                                         </td>
+                                                                                                                                                    </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                            <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          rail                                                                           </td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            los angeles ca <br />                                                                            </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                                                                                                    </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                                                                                                         </td>
+                                                                                                                                                    </tr>
+                                                                </table>
+                                                                </td>
+                                                            </tr><tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          rail                                                                           </td>
+                                                                          
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            chicago il                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                            
+                                                                                    <td>jersey city nj <br /></td>
+                                                                                                                                                            </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                                                                                                         </td>
+                                                                            
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                    </table>
+                                                        <div align="right">
+                                                            <strong>Total Transit Time : 14day(s)</strong>
+                                                        </div>
+                                                                                                            </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9">
+                                                <div id="imp515578" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                        <div id="eachfrom-515578">
+                                                            <div class="e_fly_th">
+                                                                <ul>
+                                                                    <li class="c0">运价信息</li>
+                                                                    <li class="c1">有效期</li>
+                                                                    <li class="c2">联系方式</li>
+                                                                    <li class="c3">运价/USD{20GP,40GP,40HQ}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>COSCO</td>
+                                            <td><a href="/downpdf/COSCO-CEN" target="_blank">CEN</a></td>
+                                            <td><a href="http://www.shipxy.com/Monitor?kw=COSCO JAPAN" target="_blank" title="点击查看船位">COSCO JAPAN</a></td>
+                                            <td>044E</td>
+                                            <td>2015-05-25</td>
+                                            <td>2015-06-16</td>
+                                            <td style="text-align:center;">22</td>
+											<td>
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#839502" onclick="changesign(this);">
+                                                    +Detail
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <table class="instMinPrice">
+                                                    <tr>
+                                                        <td><span id="mingp20-839502">...</span></td>
+                                                        <td><span id="mingp40-839502">...</span></td>
+                                                        <td><span id="minhq40-839502">...</span></td>
+                                                        <td><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#imp839502" title="详细运价">详</a></td>
+                                                    </tr>
+                                                </table>
+                                                <input type="hidden" value="COSCO&CE3E9C3EBC236D6D&172119D490AE5F66" id="forfrID-839502">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <div id="839502" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                                                                             
+                                                        <table id="intable">
+                                                            
+                                                            <tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          cosco japan                                                                           </td>
+                                                                          
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            shanghai                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                            
+                                                                                    <td>prince rupert </td>
+                                                                                                                                                            </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            044e                                                                             </td>
+                                                                            
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                    </table>
+                                                        <div align="right">
+                                                            <strong>Total Transit Time : 22day(s)</strong>
+                                                        </div>
+                                                                                                            </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9">
+                                                <div id="imp839502" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                        <div id="eachfrom-839502">
+                                                            <div class="e_fly_th">
+                                                                <ul>
+                                                                    <li class="c0">运价信息</li>
+                                                                    <li class="c1">有效期</li>
+                                                                    <li class="c2">联系方式</li>
+                                                                    <li class="c3">运价/USD{20GP,40GP,40HQ}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>COSCO</td>
+                                            <td><a href="/downpdf/COSCO-AWE1" target="_blank">AWE1</a></td>
+                                            <td><a href="http://www.shipxy.com/Monitor?kw=HANJIN ATLANTA" target="_blank" title="点击查看船位">HANJIN ATLANTA</a></td>
+                                            <td>032E</td>
+                                            <td>2015-05-25</td>
+                                            <td>2015-06-22</td>
+                                            <td style="text-align:center;">28</td>
+											<td>
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#839504" onclick="changesign(this);">
+                                                    +Detail
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <table class="instMinPrice">
+                                                    <tr>
+                                                        <td><span id="mingp20-839504">...</span></td>
+                                                        <td><span id="mingp40-839504">...</span></td>
+                                                        <td><span id="minhq40-839504">...</span></td>
+                                                        <td><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#imp839504" title="详细运价">详</a></td>
+                                                    </tr>
+                                                </table>
+                                                <input type="hidden" value="COSCO&CE3E9C3EBC236D6D&172119D490AE5F66" id="forfrID-839504">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <div id="839504" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                                                                             
+                                                        <table id="intable">
+                                                            
+                                                            <tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          hanjin atlanta                                                                           </td>
+                                                                          
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            shanghai                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                            
+                                                                                    <td>new york </td>
+                                                                                                                                                            </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            032e                                                                             </td>
+                                                                            
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                    </table>
+                                                        <div align="right">
+                                                            <strong>Total Transit Time : 28day(s)</strong>
+                                                        </div>
+                                                                                                            </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9">
+                                                <div id="imp839504" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                        <div id="eachfrom-839504">
+                                                            <div class="e_fly_th">
+                                                                <ul>
+                                                                    <li class="c0">运价信息</li>
+                                                                    <li class="c1">有效期</li>
+                                                                    <li class="c2">联系方式</li>
+                                                                    <li class="c3">运价/USD{20GP,40GP,40HQ}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>COSCO</td>
+                                            <td><a href="/downpdf/COSCO-AWE4" target="_blank">AWE4</a></td>
+                                            <td><a href="http://www.shipxy.com/Monitor?kw=YM MATURITY" target="_blank" title="点击查看船位">YM MATURITY</a></td>
+                                            <td>032A</td>
+                                            <td>2015-05-25</td>
+                                            <td>2015-06-23</td>
+                                            <td style="text-align:center;">29</td>
+											<td>
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#839507" onclick="changesign(this);">
+                                                    +Detail
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <table class="instMinPrice">
+                                                    <tr>
+                                                        <td><span id="mingp20-839507">...</span></td>
+                                                        <td><span id="mingp40-839507">...</span></td>
+                                                        <td><span id="minhq40-839507">...</span></td>
+                                                        <td><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#imp839507" title="详细运价">详</a></td>
+                                                    </tr>
+                                                </table>
+                                                <input type="hidden" value="COSCO&CE3E9C3EBC236D6D&172119D490AE5F66" id="forfrID-839507">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <div id="839507" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                                                                             
+                                                        <table id="intable">
+                                                            
+                                                            <tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          ym maturity                                                                           </td>
+                                                                          
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            shanghai                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                            
+                                                                                    <td>new york </td>
+                                                                                                                                                            </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            032a                                                                             </td>
+                                                                            
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                    </table>
+                                                        <div align="right">
+                                                            <strong>Total Transit Time : 29day(s)</strong>
+                                                        </div>
+                                                                                                            </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9">
+                                                <div id="imp839507" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                        <div id="eachfrom-839507">
+                                                            <div class="e_fly_th">
+                                                                <ul>
+                                                                    <li class="c0">运价信息</li>
+                                                                    <li class="c1">有效期</li>
+                                                                    <li class="c2">联系方式</li>
+                                                                    <li class="c3">运价/USD{20GP,40GP,40HQ}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>HANJIN</td>
+                                            <td><a href="/downpdf/HANJIN-QNX" target="_blank">QNX</a></td>
+                                            <td><a href="http://www.shipxy.com/Monitor?kw=EVER LEARNED" target="_blank" title="点击查看船位">EVER LEARNED</a></td>
+                                            <td>0012E</td>
+                                            <td>2015-05-25</td>
+                                            <td>2015-06-19</td>
+                                            <td style="text-align:center;">25</td>
+											<td>
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#1126416" onclick="changesign(this);">
+                                                    +Detail
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <table class="instMinPrice">
+                                                    <tr>
+                                                        <td><span id="mingp20-1126416">...</span></td>
+                                                        <td><span id="mingp40-1126416">...</span></td>
+                                                        <td><span id="minhq40-1126416">...</span></td>
+                                                        <td><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#imp1126416" title="详细运价">详</a></td>
+                                                    </tr>
+                                                </table>
+                                                <input type="hidden" value="HANJIN&CE3E9C3EBC236D6D&172119D490AE5F66" id="forfrID-1126416">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <div id="1126416" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                                                                             
+                                                        <table id="intable">
+                                                            
+                                                            <tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          ever learned                                                                           </td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            shanghai                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                                                                                                    </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            0012e                                                                             </td>
+                                                                                                                                                    </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                            <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          harbor                                                                           </td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            los angeles ca <br />                                                                            </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                                                                                                    </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            express,inc.                                                                             </td>
+                                                                                                                                                    </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                            <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          burlington northern and santa fe                                                                           </td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            long beach ca <br />                                                                            </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                                                                                                    </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            railroad                                                                             </td>
+                                                                                                                                                    </tr>
+                                                                </table>
+                                                                </td>
+                                                            </tr><tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          norfolk southern railway                                                                           </td>
+                                                                          
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            chicago il                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                            
+                                                                                    <td>new york ny <br /></td>
+                                                                                                                                                            </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            co.                                                                             </td>
+                                                                            
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                    </table>
+                                                        <div align="right">
+                                                            <strong>Total Transit Time : 25day(s)</strong>
+                                                        </div>
+                                                                                                            </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9">
+                                                <div id="imp1126416" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                        <div id="eachfrom-1126416">
+                                                            <div class="e_fly_th">
+                                                                <ul>
+                                                                    <li class="c0">运价信息</li>
+                                                                    <li class="c1">有效期</li>
+                                                                    <li class="c2">联系方式</li>
+                                                                    <li class="c3">运价/USD{20GP,40GP,40HQ}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>HANJIN</td>
+                                            <td><a href="/downpdf/HANJIN-AWK" target="_blank">AWK</a></td>
+                                            <td><a href="http://www.shipxy.com/Monitor?kw=YM MATURITY" target="_blank" title="点击查看船位">YM MATURITY</a></td>
+                                            <td>0032W</td>
+                                            <td>2015-05-25</td>
+                                            <td>2015-06-20</td>
+                                            <td style="text-align:center;">26</td>
+											<td>
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#1126417" onclick="changesign(this);">
+                                                    +Detail
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <table class="instMinPrice">
+                                                    <tr>
+                                                        <td><span id="mingp20-1126417">...</span></td>
+                                                        <td><span id="mingp40-1126417">...</span></td>
+                                                        <td><span id="minhq40-1126417">...</span></td>
+                                                        <td><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#imp1126417" title="详细运价">详</a></td>
+                                                    </tr>
+                                                </table>
+                                                <input type="hidden" value="HANJIN&CE3E9C3EBC236D6D&172119D490AE5F66" id="forfrID-1126417">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <div id="1126417" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                                                                             
+                                                        <table id="intable">
+                                                            
+                                                            <tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          ym maturity                                                                           </td>
+                                                                          
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            shanghai                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                            
+                                                                                    <td>new york ny <br /></td>
+                                                                                                                                                            </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            0032w                                                                             </td>
+                                                                            
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                    </table>
+                                                        <div align="right">
+                                                            <strong>Total Transit Time : 26day(s)</strong>
+                                                        </div>
+                                                                                                            </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9">
+                                                <div id="imp1126417" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                        <div id="eachfrom-1126417">
+                                                            <div class="e_fly_th">
+                                                                <ul>
+                                                                    <li class="c0">运价信息</li>
+                                                                    <li class="c1">有效期</li>
+                                                                    <li class="c2">联系方式</li>
+                                                                    <li class="c3">运价/USD{20GP,40GP,40HQ}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>HANJIN</td>
+                                            <td><a href="/downpdf/HANJIN-CEN" target="_blank">CEN</a></td>
+                                            <td><a href="http://www.shipxy.com/Monitor?kw=COSCO JAPAN" target="_blank" title="点击查看船位">COSCO JAPAN</a></td>
+                                            <td>0044E</td>
+                                            <td>2015-05-25</td>
+                                            <td>2015-06-22</td>
+                                            <td style="text-align:center;">28</td>
+											<td>
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#1126418" onclick="changesign(this);">
+                                                    +Detail
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <table class="instMinPrice">
+                                                    <tr>
+                                                        <td><span id="mingp20-1126418">...</span></td>
+                                                        <td><span id="mingp40-1126418">...</span></td>
+                                                        <td><span id="minhq40-1126418">...</span></td>
+                                                        <td><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#imp1126418" title="详细运价">详</a></td>
+                                                    </tr>
+                                                </table>
+                                                <input type="hidden" value="HANJIN&CE3E9C3EBC236D6D&172119D490AE5F66" id="forfrID-1126418">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <div id="1126418" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                                                                             
+                                                        <table id="intable">
+                                                            
+                                                            <tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          cosco japan                                                                           </td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            shanghai                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                                                                                                    </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            0044e                                                                             </td>
+                                                                                                                                                    </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                            <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          harbor                                                                           </td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            long beach ca <br />                                                                            </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                                                                                                    </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            express,inc.                                                                             </td>
+                                                                                                                                                    </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                            <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          burlington northern and santa fe                                                                           </td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            long beach ca <br />                                                                            </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                                                                                                    </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            railroad                                                                             </td>
+                                                                                                                                                    </tr>
+                                                                </table>
+                                                                </td>
+                                                            </tr><tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          norfolk southern railway                                                                           </td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            chicago il                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                                                                                                    </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            co.                                                                             </td>
+                                                                                                                                                    </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                            <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          harbor express,                                                                           </td>
+                                                                          
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            new york ny <br />                                                                            </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                            
+                                                                                    <td>new york ny <br /></td>
+                                                                                                                                                            </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            llc                                                                             </td>
+                                                                            
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                    </table>
+                                                        <div align="right">
+                                                            <strong>Total Transit Time : 28day(s)</strong>
+                                                        </div>
+                                                                                                            </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9">
+                                                <div id="imp1126418" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                        <div id="eachfrom-1126418">
+                                                            <div class="e_fly_th">
+                                                                <ul>
+                                                                    <li class="c0">运价信息</li>
+                                                                    <li class="c1">有效期</li>
+                                                                    <li class="c2">联系方式</li>
+                                                                    <li class="c3">运价/USD{20GP,40GP,40HQ}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                                                            <tr>
+                                            <td>HANJIN</td>
+                                            <td><a href="/downpdf/HANJIN-AWH" target="_blank">AWH</a></td>
+                                            <td><a href="http://www.shipxy.com/Monitor?kw=HANJIN ATLANTA" target="_blank" title="点击查看船位">HANJIN ATLANTA</a></td>
+                                            <td>0032E</td>
+                                            <td>2015-05-25</td>
+                                            <td>2015-06-19</td>
+                                            <td style="text-align:center;">25</td>
+											<td>
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#1126419" onclick="changesign(this);">
+                                                    +Detail
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <table class="instMinPrice">
+                                                    <tr>
+                                                        <td><span id="mingp20-1126419">...</span></td>
+                                                        <td><span id="mingp40-1126419">...</span></td>
+                                                        <td><span id="minhq40-1126419">...</span></td>
+                                                        <td><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#imp1126419" title="详细运价">详</a></td>
+                                                    </tr>
+                                                </table>
+                                                <input type="hidden" value="HANJIN&CE3E9C3EBC236D6D&172119D490AE5F66" id="forfrID-1126419">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8">
+                                                <div id="1126419" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                                                                             
+                                                        <table id="intable">
+                                                            
+                                                            <tr>                                                                <td>
+                                                                <table class="widget" id="witgetid">
+                                                                        <tr align="center">
+                                                                          <td width="">
+                                                                          &nbsp;
+                                                                          </td>
+                                                                          <td width="">
+                                                                          hanjin atlanta                                                                           </td>
+                                                                          
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                            shanghai                                                                             </td>
+                                                                            <td width="70px" style="">
+                                                                            <img src="/img/arow.png" width="70px" height="70px" />
+                                                                            </td>
+                                                                            
+                                                                                    <td>new york ny <br /></td>
+                                                                                                                                                            </tr>
+                                                                        <tr>
+                                                                            <td width="">
+                                                                            &nbsp;
+                                                                            </td>
+                                                                            <td width="">
+                                                                            0032e                                                                             </td>
+                                                                            
+                                                                          <td>&nbsp;</td>
+                                                                                                                                                  </tr>
+                                                                </table>
+                                                                </td>
+                                                                                                                    </table>
+                                                        <div align="right">
+                                                            <strong>Total Transit Time : 25day(s)</strong>
+                                                        </div>
+                                                                                                            </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="9">
+                                                <div id="imp1126419" class="accordion-body collapse ">
+                                                    <div class="accordion-inner">
+                                                        <div id="eachfrom-1126419">
+                                                            <div class="e_fly_th">
+                                                                <ul>
+                                                                    <li class="c0">运价信息</li>
+                                                                    <li class="c1">有效期</li>
+                                                                    <li class="c2">联系方式</li>
+                                                                    <li class="c3">运价/USD{20GP,40GP,40HQ}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                                                                                            </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-pagination">
+                    <div class="pagination"><ul><li class="previous_page disabled"><a href="#">&laquo; Previous</a></li><li class="active"><a href="#">1</a></li> <li><a href="http://www.soushipping.com/paginate?page=2&orginalcity=Shanghai%2CShanghai%2CChina&destcity=New+York%2CNew+York%2CUnited+States&leaveday=2015-05-25&pickers=ALIANCA%2CANL%2CAPL%2CCMA%2CCNC%2CCOSCO%2CCSAV%2CCSCL%2CDELMAS%2CEMIRATES%2CEVERGREEN%2CHAMBURG+S%C3%9CD%2CHANJIN%2CHAPAG-LLOYD%2CHMM%2CK.LINE%2CMCC%2CMOL%2CMSC%2CMSK%2CNORASIA%2CNYK%2CPIL%2CSAFMARINE%2CUASC%2CWANHAI%2CYANGMING%2CZIM">2</a></li> <li><a href="http://www.soushipping.com/paginate?page=3&orginalcity=Shanghai%2CShanghai%2CChina&destcity=New+York%2CNew+York%2CUnited+States&leaveday=2015-05-25&pickers=ALIANCA%2CANL%2CAPL%2CCMA%2CCNC%2CCOSCO%2CCSAV%2CCSCL%2CDELMAS%2CEMIRATES%2CEVERGREEN%2CHAMBURG+S%C3%9CD%2CHANJIN%2CHAPAG-LLOYD%2CHMM%2CK.LINE%2CMCC%2CMOL%2CMSC%2CMSK%2CNORASIA%2CNYK%2CPIL%2CSAFMARINE%2CUASC%2CWANHAI%2CYANGMING%2CZIM">3</a></li> <li><a href="http://www.soushipping.com/paginate?page=4&orginalcity=Shanghai%2CShanghai%2CChina&destcity=New+York%2CNew+York%2CUnited+States&leaveday=2015-05-25&pickers=ALIANCA%2CANL%2CAPL%2CCMA%2CCNC%2CCOSCO%2CCSAV%2CCSCL%2CDELMAS%2CEMIRATES%2CEVERGREEN%2CHAMBURG+S%C3%9CD%2CHANJIN%2CHAPAG-LLOYD%2CHMM%2CK.LINE%2CMCC%2CMOL%2CMSC%2CMSK%2CNORASIA%2CNYK%2CPIL%2CSAFMARINE%2CUASC%2CWANHAI%2CYANGMING%2CZIM">4</a></li> <li><a href="http://www.soushipping.com/paginate?page=5&orginalcity=Shanghai%2CShanghai%2CChina&destcity=New+York%2CNew+York%2CUnited+States&leaveday=2015-05-25&pickers=ALIANCA%2CANL%2CAPL%2CCMA%2CCNC%2CCOSCO%2CCSAV%2CCSCL%2CDELMAS%2CEMIRATES%2CEVERGREEN%2CHAMBURG+S%C3%9CD%2CHANJIN%2CHAPAG-LLOYD%2CHMM%2CK.LINE%2CMCC%2CMOL%2CMSC%2CMSK%2CNORASIA%2CNYK%2CPIL%2CSAFMARINE%2CUASC%2CWANHAI%2CYANGMING%2CZIM">5</a></li> <li><a href="http://www.soushipping.com/paginate?page=6&orginalcity=Shanghai%2CShanghai%2CChina&destcity=New+York%2CNew+York%2CUnited+States&leaveday=2015-05-25&pickers=ALIANCA%2CANL%2CAPL%2CCMA%2CCNC%2CCOSCO%2CCSAV%2CCSCL%2CDELMAS%2CEMIRATES%2CEVERGREEN%2CHAMBURG+S%C3%9CD%2CHANJIN%2CHAPAG-LLOYD%2CHMM%2CK.LINE%2CMCC%2CMOL%2CMSC%2CMSK%2CNORASIA%2CNYK%2CPIL%2CSAFMARINE%2CUASC%2CWANHAI%2CYANGMING%2CZIM">6</a></li> <li><a href="http://www.soushipping.com/paginate?page=7&orginalcity=Shanghai%2CShanghai%2CChina&destcity=New+York%2CNew+York%2CUnited+States&leaveday=2015-05-25&pickers=ALIANCA%2CANL%2CAPL%2CCMA%2CCNC%2CCOSCO%2CCSAV%2CCSCL%2CDELMAS%2CEMIRATES%2CEVERGREEN%2CHAMBURG+S%C3%9CD%2CHANJIN%2CHAPAG-LLOYD%2CHMM%2CK.LINE%2CMCC%2CMOL%2CMSC%2CMSK%2CNORASIA%2CNYK%2CPIL%2CSAFMARINE%2CUASC%2CWANHAI%2CYANGMING%2CZIM">7</a></li> <li><a href="http://www.soushipping.com/paginate?page=8&orginalcity=Shanghai%2CShanghai%2CChina&destcity=New+York%2CNew+York%2CUnited+States&leaveday=2015-05-25&pickers=ALIANCA%2CANL%2CAPL%2CCMA%2CCNC%2CCOSCO%2CCSAV%2CCSCL%2CDELMAS%2CEMIRATES%2CEVERGREEN%2CHAMBURG+S%C3%9CD%2CHANJIN%2CHAPAG-LLOYD%2CHMM%2CK.LINE%2CMCC%2CMOL%2CMSC%2CMSK%2CNORASIA%2CNYK%2CPIL%2CSAFMARINE%2CUASC%2CWANHAI%2CYANGMING%2CZIM">8</a></li> <li><a href="http://www.soushipping.com/paginate?page=9&orginalcity=Shanghai%2CShanghai%2CChina&destcity=New+York%2CNew+York%2CUnited+States&leaveday=2015-05-25&pickers=ALIANCA%2CANL%2CAPL%2CCMA%2CCNC%2CCOSCO%2CCSAV%2CCSCL%2CDELMAS%2CEMIRATES%2CEVERGREEN%2CHAMBURG+S%C3%9CD%2CHANJIN%2CHAPAG-LLOYD%2CHMM%2CK.LINE%2CMCC%2CMOL%2CMSC%2CMSK%2CNORASIA%2CNYK%2CPIL%2CSAFMARINE%2CUASC%2CWANHAI%2CYANGMING%2CZIM">9</a></li><li class="next_page"><a href="http://www.soushipping.com/paginate?page=2&orginalcity=Shanghai%2CShanghai%2CChina&destcity=New+York%2CNew+York%2CUnited+States&leaveday=2015-05-25&pickers=ALIANCA%2CANL%2CAPL%2CCMA%2CCNC%2CCOSCO%2CCSAV%2CCSCL%2CDELMAS%2CEMIRATES%2CEVERGREEN%2CHAMBURG+S%C3%9CD%2CHANJIN%2CHAPAG-LLOYD%2CHMM%2CK.LINE%2CMCC%2CMOL%2CMSC%2CMSK%2CNORASIA%2CNYK%2CPIL%2CSAFMARINE%2CUASC%2CWANHAI%2CYANGMING%2CZIM">Next &raquo;</a></li></ul></div>                </div>
+                
+                
+                                <div class="down">
+                    <a target="_blank" onclick="if(1) alert('登录后方可下载哦~亲');" href="/downexcel?orginalcity=Shanghai,Shanghai,China&destcity=New York,New York,United States&leaveday=2015-05-25&pickers=ALIANCA,ANL,APL,CMA,CNC,COSCO,CSAV,CSCL,DELMAS,EMIRATES,EVERGREEN,HAMBURG SÜD,HANJIN,HAPAG-LLOYD,HMM,K.LINE,MCC,MOL,MSC,MSK,NORASIA,NYK,PIL,SAFMARINE,UASC,WANHAI,YANGMING,ZIM&which=&seq=" style="color:#0088cc;">点击下载Excel文件
+                                        </a>
+                </div>
+                <div class="sendemail">
+                    <a target="_blank" onclick="if(1) alert('登录后方可发送邮件哦~亲');" href="/send?orginalcity=Shanghai,Shanghai,China&destcity=New York,New York,United States&leaveday=2015-05-25&pickers=ALIANCA,ANL,APL,CMA,CNC,COSCO,CSAV,CSCL,DELMAS,EMIRATES,EVERGREEN,HAMBURG SÜD,HANJIN,HAPAG-LLOYD,HMM,K.LINE,MCC,MOL,MSC,MSK,NORASIA,NYK,PIL,SAFMARINE,UASC,WANHAI,YANGMING,ZIM&which=&seq=&email=" style="color:#0088cc;">您也可以选择发送邮件到您的邮箱
+                                        </a>
+                </div>
+                            </div>
+        </div> 
+				<footer class="layout_footer" id="footer">
+			<div class="erweima_wrap">
+				<div class="maskLayer">				
+				</div>
+				<div class="erweima">
+					<span></span>
+					<img src="/img/sswxqr.jpg" alt="">
+					<p>中国船期网平台</p>
+				</div>
+			</div>
+			<div class="footer_cont">
+			    <a href="" name="bottom"></a>
+			    <div class="ft_ie">
+			        <h2 class="fl_l">中国船期网，让物流变得更简单</h2>
+			        <div class="clear po_r">
+			            <a href="/about">关于我们</a>
+			            <a href="/faq">常见问题</a>
+			            <a href="/contact">联系我们</a>
+			        </div>
+			        <div class="layout_footer_right">
+			            <a href="http://weibo.com/u/3515637217" target="_blank" class="ft_sina"></a>
+			            <a href="" data-dialogimg="/img/sswxqr.jpg" data-dialogtext="中国船期网平台" class="ft_weixin"></a>
+			            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=403034769&amp;site=qq&amp;menu=yes" target="_blank" class="ft_qq"></a>
+			        </div>
+			    </div>
+			    		    	<div class="cr">
+		    		<p class="pull-left">厦门鑫炬信息科技有限公司&nbsp;&nbsp;</p>
+					<p class="pull-left">ICP备案号：闽ICP备12003672号-3</p>
+					<p class="pull-right">Copyright 2012-2015 All Rights Reserved</p>
+		    	</div>
+				<br style="clear:both;" />
+			    			    			    <div class="count pull-left" id="tj">
+			    	<div style="display:inline;*display:inline;zoom:1;">
+			    		<script type="text/javascript">
+			    			var _bdhmProtocol = (("https:" == document.location.protocol) ? "https://" : " http://");
+			    			document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F91e6e094e97e1ebc7c5fb4891b60dede' type='text/javascript'%3E%3C/script%3E"));
+			    		</script>
+			    	</div>
+			    	<div style="display:inline-block;*display:inline;zoom:1;">
+			    		<script src="http://s25.cnzz.com/stat.php?id=5060905&web_id=5060905&show=pic1" language="JavaScript"></script>
+			    	</div>
+			    </div>
+			    			    
+			    			</div>
+		</footer>
+						<link rel="stylesheet" type="text/css" href="/css/kefu.css" />
+		<div class="qqbox" id="divQQbox" style="top: 128.4px;">
+			<div class="qqlv" id="meumid" onmouseover="show()" style="display: block;">
+				<img src="/img/qq.gif">
+			</div>
+			<div class="qqkf" style="display: none;" id="contentid" onmouseout="hideMsgBox(event)">
+				<div class="qqkfbt" id="qq-1">客 服 中 心</div>
+				<div class="qqkfhm bgdh" id="qqq" onmouseover="show()">
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=403034769&amp;site=qq&amp;menu=yes">
+						<img border="0" src="/img/qqlm.gif" alt="点击这里给我发消息" title="点击这里给我发消息">
+					</a>
+					<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=403034769&amp;site=qq&amp;menu=yes">
+						<img border="0" src="/img/qqlm.gif" alt="点击这里给我发消息" title="点击这里给我发消息">
+					</a>
+				</div>
+			</div>
+		</div>
+		<script src="/js/kefu.js"></script>
+		
+		<div class="jsitebar-orange frbar"><a href="/ssuser/applymorefwd?fh=CE3E9C3EBC236D6D&th=172119D490AE5F66" target="_blank" style="color:red;">还有以下公司提供此航线的私密运价<br/>点击查看</a><hr style="margin:5px 0px;" /><a href='/regcorp' target="_blank" style="color:#0088CC;" id="regcorpbtn">我想成为运价供应商点击申请</a></div>
+
+		<script src="/js/jquery-1.7.1.min.js"></script>
+		<script src="/js/jquery.fn.js"></script>
+        <script type="text/javascript" src="/js/scrolltopcontrol.js"></script>
+<script type="text/javascript" src="/js/jquery.sitebar-1.0.js"></script>
+<script>
+$(".frbar").jSitebar({
+    text:"",
+    bodyWidth:"1000px",
+    bottom:"192px",
+    theme:{
+        width:"127px",
+        height:"111px",
+        borderWidth:"1px",
+        borderColor:"#CCCCCC",
+        bgColor:"#F5F5F5",
+        font:"14px Microsoft YaHei"
+    },
+    callback:function(){
+    }
+  });
+</script>
+<script>
+		var noterminal = new Array('chiwan,guangdong,china','dalian,liaoning,china','hong kong,hong kong,china','nansha,guangdong,china','qingdao,tsingtao,china','tianjin,tianjin,china','yantian,guangdong,china');
+		var fmct = "Shanghai,Shanghai,China";
+		var orderlen = 5;
+        var b = new Array();
+        for(var i=0;i<orderlen;i++){
+            b[i] = document.getElementById('b'+(i+1));
+            b[i].onclick = checkorder;
+        }
+        var orders = new Array();
+            orders[0] = "carrier";
+            orders[1] = "service";
+            orders[2] = "origdate";
+            orders[3] = "destdate";
+            orders[4] = "transittime"; 
+        var reorders = new Array();
+            reorders["carrier"] = 1;
+            reorders["service"] = 2;
+            reorders["origdate"] = 3;
+            reorders["destdate"] = 4;
+            reorders["transittime"] = 5; 
+        function checkorder(){
+            if(!existClass(this,"btn-info"))
+                addClass(this,"btn-info");
+            var newa = this.innerHTML;
+            if(this.innerHTML.indexOf("↑")==-1 && this.innerHTML.indexOf("↓")==-1)
+                this.innerHTML = this.innerHTML.replace("&nbsp;","&nbsp;↓");
+            if(this.innerHTML.indexOf("↑")>-1){
+                newa = this.innerHTML.replace("↑","↓");
+                this.innerHTML  = newa;
+            }else if(this.innerHTML.indexOf("↓")>-1){
+                newa = this.innerHTML.replace("↓","↑");
+                this.innerHTML  = newa;
+            }
+            
+            for(var j=0;j<orderlen;j++){
+                if(this.name-1 != j){
+                    if(existClass(b[j],"btn-info"))
+                        removeClass(b[j],"btn-info");
+                    if(b[j].innerHTML.indexOf("↓")>-1)
+                        b[j].innerHTML = b[j].innerHTML.replace("↓","");
+                    if(b[j].innerHTML.indexOf("↑")>-1)
+                        b[j].innerHTML = b[j].innerHTML.replace("↑","");
+                }
+            }
+            var apiType = "";
+            if(apiType == '960'){
+                if(this.innerHTML.indexOf("↓")>-1)
+                    this.href="/order?orginalcity=Shanghai,Shanghai,China&destcity=New York,New York,United States&leaveday=2015-05-25&pickers=ALIANCA,ANL,APL,CMA,CNC,COSCO,CSAV,CSCL,DELMAS,EMIRATES,EVERGREEN,HAMBURG SÜD,HANJIN,HAPAG-LLOYD,HMM,K.LINE,MCC,MOL,MSC,MSK,NORASIA,NYK,PIL,SAFMARINE,UASC,WANHAI,YANGMING,ZIM&which="+orders[this.name-1]+"&seq=desc&o=0&api=960";
+                if(this.innerHTML.indexOf("↑")>-1)
+                    this.href="/order?orginalcity=Shanghai,Shanghai,China&destcity=New York,New York,United States&leaveday=2015-05-25&pickers=ALIANCA,ANL,APL,CMA,CNC,COSCO,CSAV,CSCL,DELMAS,EMIRATES,EVERGREEN,HAMBURG SÜD,HANJIN,HAPAG-LLOYD,HMM,K.LINE,MCC,MOL,MSC,MSK,NORASIA,NYK,PIL,SAFMARINE,UASC,WANHAI,YANGMING,ZIM&which="+orders[this.name-1]+"&seq=asc&o=1&api=960";
+            }else{
+                if(this.innerHTML.indexOf("↓")>-1)
+                    this.href="/order?orginalcity=Shanghai,Shanghai,China&destcity=New York,New York,United States&leaveday=2015-05-25&pickers=ALIANCA,ANL,APL,CMA,CNC,COSCO,CSAV,CSCL,DELMAS,EMIRATES,EVERGREEN,HAMBURG SÜD,HANJIN,HAPAG-LLOYD,HMM,K.LINE,MCC,MOL,MSC,MSK,NORASIA,NYK,PIL,SAFMARINE,UASC,WANHAI,YANGMING,ZIM&which="+orders[this.name-1]+"&seq=desc&o=0";
+                if(this.innerHTML.indexOf("↑")>-1)
+                    this.href="/order?orginalcity=Shanghai,Shanghai,China&destcity=New York,New York,United States&leaveday=2015-05-25&pickers=ALIANCA,ANL,APL,CMA,CNC,COSCO,CSAV,CSCL,DELMAS,EMIRATES,EVERGREEN,HAMBURG SÜD,HANJIN,HAPAG-LLOYD,HMM,K.LINE,MCC,MOL,MSC,MSK,NORASIA,NYK,PIL,SAFMARINE,UASC,WANHAI,YANGMING,ZIM&which="+orders[this.name-1]+"&seq=asc&o=1";
+            }
+            
+        }
+		var whi = "-1";
+		
+		if(whi != "-1" && whi != ''){
+			var direct = "-1";
+            if(direct != '-1' && direct != ''){
+                if(direct == 1){
+                    if(b[reorders[whi]-1].innerHTML.indexOf("↑") > -1 )
+                        b[reorders[whi]-1].innerHTML = b[reorders[whi]-1].innerHTML.replace("↑","");
+                    if(b[reorders[whi]-1].innerHTML.indexOf("↓") > -1 )
+                        b[reorders[whi]-1].innerHTML = b[reorders[whi]-1].innerHTML.replace("↓","");
+                    b[reorders[whi]-1].innerHTML = b[reorders[whi]-1].innerHTML.replace("&nbsp;","&nbsp;↑");
+                    addClass(b[reorders[whi]-1],"btn-info");
+                }
+                if(direct == 0){
+                    if(b[reorders[whi]-1].innerHTML.indexOf("↑") > -1 )
+                        b[reorders[whi]-1].innerHTML = b[reorders[whi]-1].innerHTML.replace("↑","");
+                    if(b[reorders[whi]-1].innerHTML.indexOf("↓") > -1 )
+                        b[reorders[whi]-1].innerHTML = b[reorders[whi]-1].innerHTML.replace("↓","");
+                    b[reorders[whi]-1].innerHTML = b[reorders[whi]-1].innerHTML.replace("&nbsp;","&nbsp;↓");
+                    addClass(b[reorders[whi]-1],"btn-info");
+                }
+            }
+            for(var j=0;j<orderlen;j++){
+                if(reorders[whi]-1 != j){
+                    if(existClass(b[j],"btn-info"))
+                        removeClass(b[j],"btn-info");
+                    if(b[j].innerHTML.indexOf("↓")>-1)
+                        b[j].innerHTML = b[j].innerHTML.replace("↓","");
+                    if(b[j].innerHTML.indexOf("↑")>-1)
+                        b[j].innerHTML = b[j].innerHTML.replace("↑","");
+                }
+            }
+        }
+</script>
+
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/jquery.multiselect.js"></script>
+<script>
+    $("#selectpicker").multiselect({
+        height:"175",
+        minWidth:"165",
+        checkAllText:"全选",
+        uncheckAllText:"全不选",
+        noneSelectedText:"承运人",
+        selectedText:"已选择#家承运人",
+        selectedList:"true",
+        show:['slide',500],
+        hide:['explode',500]
+    });
+    $("#selectpicker").multiselect({
+        close:function(event,ui){
+            if(!document.getElementById('pickers')) return false; else document.getElementById('pickers').value = $("#selectpicker").val();
+        }
+    });
+    
+    function changesign(t){
+        if(t.innerHTML.indexOf('+')>-1){t.innerHTML = t.innerHTML.replace('+','-'); return ; }
+        if(t.innerHTML.indexOf('-')>-1){t.innerHTML = t.innerHTML.replace('-','+'); return ; }
+    }
+    
+	function onc3(){
+		$("#datepicker").select();
+	}
+    function beforeSub(){
+        if($('#fromcity').val() == '' || $('#fromcity').val() == '点击输入'){$('#fromcity').focus(); return false; }
+        if($('#tocity').val() == '' || $('#tocity').val() == '点击输入'){$('#tocity').focus(); return false; }
+    }
+</script>
+
+        <script src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="/js/citylist.js"></script>
+<script type="text/javascript" src="/js/originalcity.js"></script>
+<script type="text/javascript" src="/js/querycity.js"></script>
+
+<script>
+    /*var fro = "Shanghai,Shanghai,China";
+	var to = "New York,New York,United States";
+	if(fro != '-1' && fro != '点击输入'){$('#fromcity').val(fro); }
+	if(to != '-1' && to != '点击输入'){$('#tocity').val(to); }*/
+	var pickers = "ALIANCA,ANL,APL,CMA,CNC,COSCO,CSAV,CSCL,DELMAS,EMIRATES,EVERGREEN,HAMBURG SÜD,HANJIN,HAPAG-LLOYD,HMM,K.LINE,MCC,MOL,MSC,MSK,NORASIA,NYK,PIL,SAFMARINE,UASC,WANHAI,YANGMING,ZIM";
+	if(pickers != '-1' && pickers != ''){
+		var pick = pickers.split(',');
+		
+		$('#selectpicker').multiselect("uncheckAll");
+		for(var i = 0; i < pick.length; i++)
+			$('#selectpicker').find("option[value='"+pick[i]+"']").attr("selected", "selected");
+		$('#selectpicker').multiselect("refresh");
+		$('#selectpicker').multiselect("close");
+	}
+	
+	$('#fromcity').querycity({'data':orginalcitys});
+	$('#tocity').querycity({'data':citysFlight,'tabs':labelFromcity});
+	$('#datepicker').datepicker();
+    $('#regcorpbtn').click(function(){
+        _czc.push(["_trackEvent","运价平台","注册","点击运价平台注册","1"]);
+    });
+</script>
+<script type="text/javascript" src="/js/pag_fr.js"></script>
+        <script src="/js/layout_dynamic.js"></script>
+		<script type="text/javascript">
+			if($.browser.msie&&parseInt($.browser.version,10)===6)
+			{
+				$('.row div[class^="span"]:last-child').addClass("last-child");$('[class*="span"]').addClass("margin-left-20");$('[class*="span"][class*="offset"]').removeClass('margin-left-20');
+				$(':button[class="btn"], :reset[class="btn"], :submit[class="btn"], input[type="button"]').addClass("button-reset");
+				$(":checkbox").addClass("input-checkbox");$('[class^="icon-"], [class*=" icon-"]').addClass("icon-sprite");
+				$(".pagination li:first-child a").addClass("pagination-first-child");
+			}
+        </script>
+	</body>
+</html>
+
